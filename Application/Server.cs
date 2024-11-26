@@ -14,7 +14,12 @@ namespace Application
         {
             _dishManager = dishManager;
         }
-        
+
+        public async Task<IReadOnlyCollection<Dish>> TakeAllAsync()
+        {
+            return await _dishManager.GetAllDishesAsync();
+        }
+
         public async Task<string> TakeOrderAsync(string unparsedOrder)
         {
             try

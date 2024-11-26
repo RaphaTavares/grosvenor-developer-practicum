@@ -13,5 +13,6 @@ namespace Application
         /// <param name="order"></param>
         /// <returns></returns>
         Task<List<Dish>> GetDishesAsync(Order order);
+        Task<IReadOnlyCollection<Dish>> GetAllDishesAsync();
     }
 }

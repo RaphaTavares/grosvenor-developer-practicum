@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Infrastructure.Database;
+using Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace Application
 {
     public class DishManager : IDishManager
     {
-        private readonly DishRepository _dishRepository;
+        private readonly IDishRepository _dishRepository;
 
-        public DishManager(DishRepository dishRepository)
+        public DishManager(IDishRepository dishRepository)
         {
             _dishRepository = dishRepository;
         }
@@ -33,6 +34,15 @@ namespace Application
         }
 
         /// <summary>
+        /// Retrieve all the dishes available
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IReadOnlyCollection<Dish>> GetAllDishesAsync()
+        {
+            return await _dishRepository.GetByFilterAsync(x => 1 == 1);
+        }
+
+        /// <summary>
         /// Takes an int, representing an order type, tries to find it in the list.
         /// If the dish type does not exist, add it and set count to 1
         /// If the type exists, check if multiples are allowed and increment that instances count by one
@@ -42,7 +52,7 @@ namespace Application
         /// <param name="returnValue">a list of dishes, - get appended to or changed </param>
         private async Task AddOrderToListAsync(int order, ServingTime servingTime, List<Dish> returnValue)
         {
-            var dish = await GetOrderAsync(order, servingTime); // note: could refactor this to get all needed order names, making only 1 database call
+            var dish = await GetOrderAsync(order, servingTime); // note: could refactor this to get all needed order names in the upper layer, making only 1 database call
             var existingOrder = returnValue.SingleOrDefault(x => x.Name == dish.Name.ToLower());
             if (existingOrder == null)
             {

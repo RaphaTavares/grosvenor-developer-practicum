@@ -44,13 +44,6 @@ namespace Domain
         }
 
         public Dish()
-        {
-            ResetCount(); // Redefine Count sempre que uma nova instância é criada
-        }
-
-        public void ResetCount()
-        {
-            Count = 1;
-        }
+        {}
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using Domain;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Application
 {
@@ -11,6 +13,7 @@ namespace Application
         /// <param name="unparsedOrder">for example 1,2,3</param>
         /// <returns>for example: steak,potato,wine</returns>
         Task<string> TakeOrderAsync(string unparsedOrder);
+        Task<IReadOnlyCollection<Dish>> TakeAllAsync();
 
     }
 }

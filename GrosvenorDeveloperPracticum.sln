@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationTests", "ApplicationTests\ApplicationTests.csproj", "{9552B0D2-132C-4CEA-B711-B231B71A465B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{DCC829A9-576D-411C-A596-3862668D30C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{DCC829A9-576D-411C-A596-3862668D30C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{FD435E5E-3957-469D-95CA-741B525AC854}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{FD435E5E-3957-469D-95CA-741B525AC854}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcceptanceTests", "AcceptanceTests\AcceptanceTests.csproj", "{E8603CF4-EF24-4845-B213-DD64305662E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{FD435E5E-3957-469D-95CA-741B525AC854}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD435E5E-3957-469D-95CA-741B525AC854}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD435E5E-3957-469D-95CA-741B525AC854}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8603CF4-EF24-4845-B213-DD64305662E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8603CF4-EF24-4845-B213-DD64305662E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8603CF4-EF24-4845-B213-DD64305662E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8603CF4-EF24-4845-B213-DD64305662E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

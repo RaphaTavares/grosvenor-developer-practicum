@@ -7,11 +7,13 @@ namespace Infrastructure.Database
     {
         public DbSet<Dish> Dishes { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            // Configura o SQLite
-            optionsBuilder.UseSqlite("Data Source=C:\\Users\\rapha\\Downloads\\GrosvenorDeveloperPracticum\\GrosvenorDeveloperPracticum-master\\Infrastructure\\restaurant.db");
-        }
+        public RestaurantDbContext(DbContextOptions<RestaurantDbContext> options) : base(options) { }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    // Configura o SQLite
+        //    optionsBuilder.UseSqlite("Data Source=C:\\Users\\rapha\\Downloads\\GrosvenorDeveloperPracticum\\GrosvenorDeveloperPracticum-master\\Infrastructure\\restaurant.db");
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
