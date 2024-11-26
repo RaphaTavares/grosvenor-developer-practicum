@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Domain;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Application
 {
@@ -10,6 +12,6 @@ namespace Application
         /// </summary>
         /// <param name="order"></param>
         /// <returns></returns>
-        List<Dish> GetDishes(Order order);
+        Task<List<Dish>> GetDishesAsync(Order order);
     }
 }

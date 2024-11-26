@@ -1,4 +1,4 @@
-﻿using Application;
+﻿using Domain;
 using NUnit.Framework;
 
 namespace ApplicationTests
@@ -26,7 +26,7 @@ namespace ApplicationTests
             var order = "one";
             string expected = "error";
             var actual = _sut.TakeOrder(order);
-            Assert.AreEqual(expected, actual);
+            Assert.That(expected, Is.EqualTo(actual));            // Refactored because I updated NUnit's version
         }
 
         [Test]
@@ -35,7 +35,7 @@ namespace ApplicationTests
             var order = "1";
             string expected = "steak";
             var actual = _sut.TakeOrder(order);
-            Assert.AreEqual(expected, actual);
+            Assert.That(expected, Is.EqualTo(actual));            // Refactored because I updated NUnit's version
         }
 
         [Test]
@@ -44,7 +44,7 @@ namespace ApplicationTests
             var order = "2,2";
             string expected = "potato(x2)";
             var actual = _sut.TakeOrder(order);
-            Assert.AreEqual(expected, actual);
+            Assert.That(expected, Is.EqualTo(actual));            // Refactored because I updated NUnit's version
         }
 
         [Test]
@@ -53,7 +53,7 @@ namespace ApplicationTests
             var order = "1,2,3,4";
             string expected = "steak,potato,wine,cake";
             var actual = _sut.TakeOrder(order);
-            Assert.AreEqual(expected, actual);
+            Assert.That(expected, Is.EqualTo(actual));            // Refactored because I updated NUnit's version
         }
 
         [Test]
@@ -62,7 +62,7 @@ namespace ApplicationTests
             var order = "1,2,2,4";
             string expected = "steak,potato(x2),cake";
             var actual = _sut.TakeOrder(order);
-            Assert.AreEqual(expected, actual);
+            Assert.That(expected, Is.EqualTo(actual));            // Refactored because I updated NUnit's version
         }
 
         [Test]
@@ -71,7 +71,7 @@ namespace ApplicationTests
             var order = "1,2,3,5";
             string expected = "error";
             var actual = _sut.TakeOrder(order);
-            Assert.AreEqual(expected, actual);
+            Assert.That(expected, Is.EqualTo(actual));            // Refactored because I updated NUnit's version
         }
 
         [Test]
@@ -80,7 +80,7 @@ namespace ApplicationTests
             var order = "1,1,2,3";
             string expected = "error";
             var actual = _sut.TakeOrder(order);
-            Assert.AreEqual(expected, actual);
+            Assert.That(expected, Is.EqualTo(actual));            // Refactored because I updated NUnit's version
         }
     }
 }

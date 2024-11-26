@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Application
+﻿namespace Domain
 {
     public class Order
     {
@@ -9,5 +7,6 @@ namespace Application
             Dishes = new List<int>();
         }
         public List<int> Dishes { get; set; }
+        public ServingTime ServingTime { get; set; }
     }
 }

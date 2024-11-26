@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Domain;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Application
 {
@@ -12,12 +15,12 @@ namespace Application
             _dishManager = dishManager;
         }
         
-        public string TakeOrder(string unparsedOrder)
+        public async Task<string> TakeOrderAsync(string unparsedOrder)
         {
             try
             {
                 Order order = ParseOrder(unparsedOrder);
-                List<Dish> dishes = _dishManager.GetDishes(order);
+                List<Dish> dishes = await _dishManager.GetDishesAsync(order);
                 string returnValue = FormatOutput(dishes);
                 return returnValue;
             }
@@ -36,7 +39,19 @@ namespace Application
             };
 
             var orderItems = unparsedOrder.Split(',');
-            foreach (var orderItem in orderItems)
+
+            var servingTimeInput = orderItems[0]?.Trim()?.ToLower();
+
+            if(Enum.TryParse(servingTimeInput, true, out ServingTime servingTime))
+            {
+                returnValue.ServingTime = servingTime;
+            }
+            else
+            {
+                throw new ApplicationException("Invalid serving time.");
+            }
+
+            foreach (var orderItem in orderItems.Skip(1))
             {
                 if (int.TryParse(orderItem, out int parsedOrder))
                 {
@@ -56,7 +71,7 @@ namespace Application
 
             foreach (var dish in dishes)
             {
-                returnValue = returnValue + string.Format(",{0}{1}", dish.DishName, GetMultiple(dish.Count));
+                returnValue = returnValue + string.Format(",{0}{1}", dish.Name, GetMultiple(dish.Count));
             }
 
             if (returnValue.StartsWith(","))

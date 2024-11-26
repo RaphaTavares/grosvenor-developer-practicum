@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Application;
+using Domain;
 using NUnit.Framework;
 
 
@@ -22,7 +22,7 @@ namespace ApplicationTests
         {
             var order = new Order();
             var actual = _sut.GetDishes(order);
-            Assert.AreEqual(0, actual.Count);
+            Assert.That(actual.Count, Is.EqualTo(0)); // Refactored because I updated NUnit's version
         }
 
         [Test]
@@ -37,9 +37,9 @@ namespace ApplicationTests
             };
 
             var actual = _sut.GetDishes(order);
-            Assert.AreEqual(1, actual.Count);
-            Assert.AreEqual("steak", actual.First().DishName);
-            Assert.AreEqual(1, actual.First().Count);
+            Assert.That(actual.Count, Is.EqualTo(1));                     // Refactored because I updated NUnit's version
+            Assert.That(actual.First().DishName, Is.EqualTo("steak"));    // Refactored because I updated NUnit's version
+            Assert.That(actual.First().Count, Is.EqualTo(1));             // Refactored because I updated NUnit's version
         }
     }
 }
